@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 8
+notifications:
+  email: false
+os:
+  - linux
+
+before_install:
+  - npm install -g yarn
+install:
+  - yarn install
+
+jobs:
+  include:
+    - script: yarn test
+      name: 'Trial run for SDK latency and size test'
+      if: type IN (push, pull_request)
+    - script: yarn launch
+      name: 'Formal run for SDK latency and size test'
+      if: type = cron
