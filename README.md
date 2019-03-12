@@ -64,3 +64,7 @@ To contribute a change, check out the [contributing guide](CONTRIBUTING.md).
 
 The contents of this repository is licensed under the
 [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+## Disclaimer
+
+This is not an officially supported Google product.
