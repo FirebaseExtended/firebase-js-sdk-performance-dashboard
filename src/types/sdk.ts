@@ -22,6 +22,7 @@ export const enum Sdk {
   Firestore = 'firebase-firestore.js',
   Functions = 'firebase-functions.js',
   Messaging = 'firebase-messaging.js',
+  Performance = 'firebase-performance.js',
   Storage = 'firebase-storage.js',
 }
 
@@ -32,6 +33,7 @@ export const sdks = [
   Sdk.Firestore,
   Sdk.Functions,
   Sdk.Messaging,
+  Sdk.Performance,
   Sdk.Storage,
 ];
 
