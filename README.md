@@ -20,7 +20,7 @@ information.
 ## Dashboarding
 
 The above aggregated results are then pulled from data storage and presented
-in a Google Data Studio [dashboard](https://datastudio.google.com/c/u/0/reporting/1PoyaQIWappLs29cY-haBk8-kwa2KYeR_/page/1iUY).
+in a Google Data Studio [dashboard](https://datastudio.google.com/c/u/0/reporting/1ZYVVPvIZaq-WYXZVfd3VOqjaf0sDlgNi/page/1iUY).
 
 See [Google Data Studio](https://datastudio.google.com/overview) for more
 information.
