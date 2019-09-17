@@ -2,7 +2,9 @@ language: node_js
 node_js:
   - 8
 notifications:
-  email: false
+  email:
+    on_success: change
+    on_failure: always
 os:
   - linux
 
