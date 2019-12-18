@@ -17,7 +17,7 @@
 
 import * as mysql from 'mysql';
 
-import { options } from '../settings/cloud-sql';
+import { instance, port, options } from '../settings/cloud-sql';
 import {
   BinarySizeRecord,
   ExecutionLatencyRecord,
@@ -26,30 +26,38 @@ import {
 } from '../types/mesurement-record';
 import { Table } from '../types/table';
 import * as log from './test-logger';
+import { CloudSqlProxy } from './cloud-sql-proxy';
 
 export class CloudSqlClient {
-  readonly database: string;
-  readonly connection: mysql.Connection;
+  private database: string = null;
+  private proxy: CloudSqlProxy = null;
+  private connection: mysql.Connection = null;
 
   constructor(database: string) {
     this.database = database;
-    this.connection = mysql.createConnection(options);
-    log.info(`Connected to sql [${options.host}] as [${options.user}].`);
+    this.proxy = new CloudSqlProxy(instance, port);
   }
 
   async initialize(): Promise<this> {
+    await this.proxy.start();
+    this.connection = mysql.createConnection(options);
+    log.info(`Connected to sql [${options.host}] as [${options.user}].`);
+
     await createTablesIfAbsent(this.database, this.connection);
     return this;
   }
 
   async terminate(): Promise<void> {
-    return new Promise((resolve, reject) => {
+    await new Promise((resolve, reject) => {
       log.info('Shutting down connection to Cloud Sql ...');
       this.connection.end(err => {
-        if (err) reject(err);
+        if (err) {
+          log.error(`Failed to close the connection: [${err}].`);
+        }
         resolve();
       });
     });
+    await this.proxy.stop();
   }
 
   async query(query: string, data: MeasurementRecord): Promise<{}> {

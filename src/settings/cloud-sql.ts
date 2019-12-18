@@ -18,8 +18,12 @@
 export const official = 'measurement';
 export const trial = 'test';
 
+export const SERVICE_ACCOUNT = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
+export const instance = process.env.CLOUD_SQL_INSTANCE;
+export const port = 3306;
 export const options = {
-  host: process.env.CLOUD_SQL_HOST,
+  host: '127.0.0.1',
   user: process.env.CLOUD_SQL_USER,
   password: process.env.CLOUD_SQL_PASSWORD,
   multipleStatements: true,
