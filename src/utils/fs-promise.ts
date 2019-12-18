@@ -63,3 +63,12 @@ export async function mkdir(path, mode) {
     });
   });
 }
+
+export async function chmod(path, mode) {
+  return new Promise((res, rej) => {
+    fs.chmod(path, mode, err => {
+      if (err) rej(err);
+      res(undefined);
+    });
+  });
+}
