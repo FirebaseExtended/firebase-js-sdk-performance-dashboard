@@ -9,6 +9,10 @@ os:
   - linux
 
 before_install:
+  - openssl aes-256-cbc -K $encrypted_403cb62f03ad_key -iv $encrypted_403cb62f03ad_iv
+    -in travis-encrypted/fb-test-app-project-db46892688cd.json.enc
+    -out travis-encrypted/fb-test-app-project-db46892688cd.json
+    -d
   - npm install -g yarn
 install:
   - yarn install
