@@ -3,6 +3,12 @@
 This project measures the startup latency and binary size of Firebase JavaScript
 SDKs.
 
+## Status 
+
+![Status: Experimental](https://img.shields.io/badge/Status-Experimental-blue)
+
+This repository is maintained by Googlers but is not a supported Firebase product.  Issues here are answered by maintainers and other community members on GitHub on a best-effort basis.
+
 ## Measurement
 
 The measurement process involves:
@@ -64,7 +70,3 @@ To contribute a change, check out the [contributing guide](CONTRIBUTING.md).
 
 The contents of this repository is licensed under the
 [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
-## Disclaimer
-
-This is not an officially supported Google product.
